@@ -1,0 +1,37 @@
+flask_app/
+│
+├── app.py                # Entry point of your app
+├── config.py             # Configurations (DB URL, secrets, etc.)
+│
+├── /instance/            # Instance folder (for local configs, ignored by git)
+│   └── config.py
+│
+├── /flask_app/           # Main package
+│   ├── __init__.py       # Initializes Flask, DB, Blueprints
+│   ├── extensions.py     # Initialize extensions (db, migrate, etc.)
+│
+│   ├── models/           # Database models
+│   │   └── user.py
+│   │   └── message.py
+│
+│   ├── routes/           # Routes / Controllers
+│   │   └── user_routes.py
+│   │   └── chat_routes.py
+│
+│   ├── services/         # Business logic (separate from routes)
+│   │   └── user_service.py
+│   │   └── chat_service.py
+│
+│   ├── schemas/          # Marshmallow schemas for validation/serialization
+│   │   └── user_schema.py
+│
+│   ├── utils/            # Helpers (JWT, email, etc.)
+│   │   └── auth.py
+│   │   └── helpers.py
+│
+│   └── templates/        # (if using Jinja2 templates)
+│   └── static/           # (if serving static files)
+│
+├── migrations/           # Flask-Migrate / Alembic migrations
+├── requirements.txt      # Python dependencies
+└── README.md
