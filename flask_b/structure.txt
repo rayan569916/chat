@@ -14,10 +14,11 @@ flask_app/
 │   │   └── user.py
 │   │   └── message.py
 │
-│   ├── routes/           # Routes / Controllers
+│   ├── route/           # Routes / Controllers
 │   │   └── user_routes.py
 │   │   └── chat_routes.py
-│
+│   │   └── test_route.py
+│   │
 │   ├── services/         # Business logic (separate from routes)
 │   │   └── user_service.py
 │   │   └── chat_service.py
