@@ -1,0 +1,69 @@
+/* base container */
+.terminal {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;               /* fills viewport; change if you want a fixed height */
+  background: #0b0f10;         /* near-black */
+  color: #00ff6a;              /* green text */
+  font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+  padding: 0;
+}
+
+/* header (minimal, optional) */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  user-select: none;
+}
+.terminal-header .title { margin-left: 6px; opacity: 0.7; }
+.led { width: 10px; height: 10px; border-radius: 50%; display: inline-block; opacity: 0.5; }
+.led-red    { background: #ff5f56; }
+.led-yellow { background: #ffbd2e; }
+.led-green  { background: #27c93f; }
+
+/* messages area */
+.terminal-body {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #0f3 #0b0f10;
+}
+.terminal-body::-webkit-scrollbar { width: 8px; }
+.terminal-body::-webkit-scrollbar-thumb { background: #0f3; }
+.line { white-space: pre-wrap; word-break: break-word; }
+.prompt { color: #18ff90; }
+.msg { color: #00ff6a; }
+
+/* input row */
+.terminal-input {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 0;
+  border-top: 1px solid rgba(0,255,106,0.15); /* subtle; remove if you want literally zero borders */
+}
+.terminal-input .prompt { padding-top: 6px; }
+
+.terminal-input textarea {
+  flex: 1;
+  background: transparent;
+  color: #00ff6a;
+  border: 0;                  /* no visible borders */
+  outline: none;              /* no focus ring */
+  resize: none;               /* keep it tidy; we auto grow */
+  caret-color: #00ff6a;       /* green caret */
+  max-height: 35vh;           /* prevent runaway growth */
+}
+
+/* placeholder dimmer */
+.terminal-input textarea::placeholder {
+  color: rgba(0,255,106,0.45);
+}
+
+/* optional slight glow */
+.terminal, .line, .terminal-input textarea {
+  text-shadow: 0 0 4px rgba(0,255,106,0.25);
+}
