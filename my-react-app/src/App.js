@@ -2,6 +2,7 @@ import './styles/App.css';
 import Chat from './components/chat.jsx';
 import Login from './components/login.jsx';
 import UserList from './components/user_list.jsx';
+import SignnUp from './components/signUp.jsx'
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/chat" element={<Chat />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<Navigate to="/login" />} />
+                <Route path="/signUp" element={<SignnUp/>}/>
             </Routes>
             {/* <div className="container-fluid vh-100 ">
                 <div className="row h-100">

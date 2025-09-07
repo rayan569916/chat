@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import { LOGIN_API } from '../api';
+import { Link } from 'react-router-dom';
 
 function Login (){
     const [login,setLogin]= useState({'username':'','password':''})
@@ -33,6 +34,9 @@ function Login (){
             </div>
             <div>
                 <button type='submit'>save</button>
+            </div>
+            <div>
+                <Link to='/signUp'>already have an account</Link>
             </div>
         </form>
     )
