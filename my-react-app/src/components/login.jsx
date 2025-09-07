@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
+import { LOGIN_API } from '../api';
 
 function Login (){
     const [login,setLogin]= useState({'username':'','password':''})
@@ -7,8 +8,15 @@ function Login (){
 
     // })
 
-    const loginFunction = (e) =>{
-        console.log(login)
+    const loginFunction = async (e) =>{
+        e.preventDefault();
+        try{
+            const response=await axios.post(LOGIN_API,login);
+            console.log(response.data);
+        }
+        catch(error){
+            console.error('Error during login:', error);
+        } 
     }
 
     return (
@@ -17,11 +25,11 @@ function Login (){
 
                 <textarea placeholder='username'
                 value={login.username}
-                onChange={e => setLogin({...Login,username:e.target.value})}
+                onChange={e => setLogin({...login,username:e.target.value})}
                 />
                 <textarea placeholder='password'
                 value={login.password}
-                onChange={e => setLogin({...Login,password:e.target.value})}/>
+                onChange={e => setLogin({...login,password:e.target.value})}/>
             </div>
             <div>
                 <button type='submit'>save</button>
@@ -29,3 +37,5 @@ function Login (){
         </form>
     )
 }
+
+export default Login;
