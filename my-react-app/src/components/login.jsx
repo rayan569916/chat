@@ -1,18 +1,26 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import { LOGIN_API } from '../api';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Login (){
     const [login,setLogin]= useState({'username':'','password':''})
     // useEffect(()=>{
 
     // })
+    const navigate = useNavigate();
 
     const loginFunction = async (e) =>{
         e.preventDefault();
         try{
             const response=await axios.post(LOGIN_API,login);
-            console.log(response.data);
+            const accessToken = response.data.access_token;
+            const refreshToken = response.data.refresh_token;
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
+            navigate('/chat');
         }
         catch(error){
             console.error('Error during login:', error);

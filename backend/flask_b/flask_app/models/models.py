@@ -22,8 +22,13 @@ class Message(db.Model):
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
-    user = db.relationship('user', backref=db.backref('messages', lazy=True))
+    # Relationship for sender
+    sender = db.relationship('User', foreign_keys=[from_user_id], backref='sent_messages')
+    # Relationship for receiver
+    receiver = db.relationship('User', foreign_keys=[to_user_id], backref='received_messages')
 
+    def __repr__(self):
+        return f"<messages>"
     def __repr__(self):
         return f"<messages>"
     
