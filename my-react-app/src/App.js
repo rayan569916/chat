@@ -17,6 +17,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signUp" element={<SignUp />} />
                 <Route path="*" element={<Navigate to="/login" />} />
+                <Route path="/user_list" element={<UserList />} />
             </Routes>
             {/* <div className="container-fluid vh-100 ">
                 <div className="row h-100">

@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import axios from "axios";
 import { LOGIN_API } from '../api';
 import { useNavigate } from 'react-router-dom';
+import './login.css';
+
 
 
 
@@ -20,7 +22,8 @@ function Login (){
             const refreshToken = response.data.refresh_token;
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('refreshToken', refreshToken);
-            navigate('/chat');
+            localStorage.setItem('username',login.username);
+            navigate('/user_list');
         }
         catch(error){
             console.error('Error during login:', error);

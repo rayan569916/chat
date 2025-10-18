@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { LOGIN_API, SIGNUP_API } from "../api"
+import "./signup.css"
 
 
 function SignUp() {
@@ -21,7 +22,8 @@ function SignUp() {
                 const refreshToken = login_response.data.refresh_token;
                 localStorage.setItem('accessToken', accessToken);
                 localStorage.setItem('refreshToken', refreshToken);
-                window.location.href = '/chat';
+                localStorage.setItem('username',SignUp.username)
+                window.location.href = '/user_list';
             }
         }
         catch(error){

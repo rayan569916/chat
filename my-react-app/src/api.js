@@ -6,6 +6,8 @@ export const TEST_API_BACKEND =  `${BASE_URL}/test-frontend-connectivity`;
 export const TEST_API_DB = `${BASE_URL}/test-db-connectivity`;
 export const LOGIN_API = `${BASE_URL}/login`;
 export const SIGNUP_API = `${BASE_URL}/signup`;
+export const USER_API = `${BASE_URL}/user_list`;
+export const CHAT_API=`${BASE_URL}/send_msg`;
 
 
 export async function refreshAccessToken() {
